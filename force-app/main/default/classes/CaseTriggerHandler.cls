@@ -1,37 +1,20 @@
 public with sharing class CaseTriggerHandler {
 
-// CONSTRUCTOR
-    public CaseTriggerHandler() {
+    public CaseTriggerHandler() {}
+
+    public void OnBeforeInsert(List<Case> newList) {}
+
+    public void OnAfterInsert(Map<Id, Case> newMap) {}
+
+    public void OnBeforeUpdate(List<Case> oldList, List<Case> newList, Map<Id, Case> newMap, Map<Id, Case> oldMap) {
+        CaseManager.connectAccountToCaseByTripId(newList);
     }
 
-// BEFORE INSERT
-    public void OnBeforeInsert(List<Case> newsObjects) {
-    }
+    public void OnAfterUpdate(List<Case> oldList, List<Case> updatedList, Map<Id, Case> newMap, Map<Id, Case> oldMap) {}
 
-// AFTER INSERT
-    public void OnAfterInsert(Map<Id, Case> newsObjectMap) {
+    public void OnBeforeDelete(List<Case> deletedList, Map<Id, Case> deletedMap) {}
 
-    }
+    public void OnAfterDelete(List<Case> deletedList, Map<Id, Case> deletedMap) {}
 
-// BEFORE UPDATE
-    public void OnBeforeUpdate(List<Case> oldsObjects, List<Case> updatedsObjects, Map<Id, Case> newsObjectMap, Map<Id, Case> oldsObjectMap) {
-        CaseManager.connectAccountToCaseByTripId(updatedsObjects);
-    }
-
-// AFTER UPDATE
-    public void OnAfterUpdate(List<Case> oldsObjects, List<Case> updatedsObjects, Map<Id, Case> newsObjectMap, Map<Id, Case> oldsObjectMap) {
-    }
-
-// BEFORE DELETE
-    public void OnBeforeDelete(List<Case> deletedsObjects, Map<Id, Case> sObjectMap) {
-
-    }
-// AFTER DELETE
-    public void OnAfterDelete(List<Case> deletedsObjects, Map<Id, Case> sObjectMap) {
-    }
-
-// (AFTER) UNDELETE
-    public void OnUndelete(List<Case> restoredsObjects) {
-
-    }
+    public void OnUndelete(List<Case> restoredList) {}
 }

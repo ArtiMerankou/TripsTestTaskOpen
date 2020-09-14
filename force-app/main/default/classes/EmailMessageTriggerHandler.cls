@@ -1,37 +1,23 @@
 public with sharing class EmailMessageTriggerHandler {
-// CONSTRUCTOR
-    public EmailMessageTriggerHandler() {
+
+    public EmailMessageTriggerHandler() {}
+
+    public void OnBeforeInsert(List<EmailMessage> newList) {
+        EmailMessageManager.debugEmailMessages(newList);
     }
 
-// BEFORE INSERT
-    public void OnBeforeInsert(List<EmailMessage> newsObjects) {
-        EmailMessageManager.debugEmailMessages(newsObjects);
+    public void OnAfterInsert(List<EmailMessage> newList, Map<Id, EmailMessage> newMap) {
+        EmailMessageManager.debugEmailMessages(newList);
+        EmailMessageManager.parseTripIdIfExists(newMap);
     }
 
-// AFTER INSERT
-    public void OnAfterInsert(List<EmailMessage> newsObjects, Map<Id, EmailMessage> newsObjectMap) {
-        EmailMessageManager.debugEmailMessages(newsObjects);
-        EmailMessageManager.parseTripIdIfExists(newsObjectMap);
-    }
+    public void OnBeforeUpdate(List<EmailMessage> oldList, List<EmailMessage> updatedList, Map<Id, EmailMessage> newMap, Map<Id, EmailMessage> oldMap) {}
 
-// BEFORE UPDATE
-    public void OnBeforeUpdate(List<EmailMessage> oldsObjects, List<EmailMessage> updatedsObjects, Map<Id, EmailMessage> newsObjectMap, Map<Id, EmailMessage> oldsObjectMap) {
-    }
+    public void OnAfterUpdate(List<EmailMessage> oldList, List<EmailMessage> updatedList, Map<Id, EmailMessage> newMap, Map<Id, EmailMessage> oldMap) {}
 
-// AFTER UPDATE
-    public void OnAfterUpdate(List<EmailMessage> oldsObjects, List<EmailMessage> updatedsObjects, Map<Id, EmailMessage> newsObjectMap, Map<Id, EmailMessage> oldsObjectMap) {
-    }
+    public void OnBeforeDelete(List<EmailMessage> deletedList, Map<Id, EmailMessage> deletedMap) {}
 
-// BEFORE DELETE
-    public void OnBeforeDelete(List<EmailMessage> deletedsObjects, Map<Id, EmailMessage> sObjectMap) {
+    public void OnAfterDelete(List<EmailMessage> deletedList, Map<Id, EmailMessage> deletedMap) {}
 
-    }
-// AFTER DELETE
-    public void OnAfterDelete(List<EmailMessage> deletedsObjects, Map<Id, EmailMessage> sObjectMap) {
-    }
-
-// (AFTER) UNDELETE
-    public void OnUndelete(List<EmailMessage> restoredsObjects) {
-
-    }
+    public void OnUndelete(List<EmailMessage> restoredList) {}
 }

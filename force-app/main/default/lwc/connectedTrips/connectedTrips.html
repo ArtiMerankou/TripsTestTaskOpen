@@ -1,0 +1,17 @@
+<template>
+
+    <article class="slds-card">
+        <template if:true={isLoading}>
+            <lightning-spinner size="medium" alternative-text="Trips are loading"></lightning-spinner>
+        </template>
+        <template if:true={hasResults}>
+            <div class="slds-text-heading_large slds-align_absolute-center">
+                {numberOfTrips} related trips
+            </div>
+            <div for:each={trips} for:item="trip" key={trip.Id}>
+                <c-trip-card trip={trip}>
+                </c-trip-card>
+            </div>
+        </template>
+    </article>
+</template>

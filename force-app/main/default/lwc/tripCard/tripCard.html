@@ -1,0 +1,26 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+          <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+              <span class="slds-icon_container slds-icon-standard-account" title="Trip">
+                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#custom5"></use>
+                </svg>
+                <span class="slds-assistive-text">{label}</span>
+              </span>
+            </div>
+            <div class="slds-media__body">
+              <h2 class="slds-card__header-title">
+                <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Trip">
+                  <span>{label}</span>
+                </a>
+              </h2>
+            </div>
+            <div class="slds-no-flex">
+                <lightning-button class="slds-m-left_x-small" label="View" onclick={navigateToRecordViewPage} ></lightning-button>
+            </div>
+          </header>
+        </div>
+      </article>
+</template>

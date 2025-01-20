@@ -4,6 +4,6 @@ global class MyHandler implements Messaging.InboundEmailHandler {
           String bodyText = email.plainTextBody;
           
           List<EmailMessage> allmessages = [SELECT Id, RelatedToId FROM EmailMessage];
-          return result;
+          return result; // return Messaging.InboundEmailResult
       }
 }
